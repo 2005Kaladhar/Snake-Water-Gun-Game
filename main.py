@@ -179,7 +179,7 @@ def game_runner():
             print("\n\nDo you want to have a series ?\nYou can play with me multiple times and the scores will"
                   " keep adding and the final result after each match will be calculated on the basis of "
                   "the sum of the scores of the previous matches.\n")
-            match_series = input("Want to Have a Series ?: ")
+            match_series = input("Want to Have a Series [y/n] ?: ")
 
             if match_series in ['y','yes']:
 
