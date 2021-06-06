@@ -151,9 +151,10 @@ def game_event_loop(chances,computer_choice):
               "Computer's Point +1..\n\n")
         computer_points+=1
 
-def game_runner(computer_choice):
+def game_runner():
     global chances
     while chances :
+        computer_choice = random.choice(list(all_choices.keys()))
         game_event_loop(chances,computer_choice)
         chances -= 1
     else:
@@ -191,8 +192,8 @@ def game_runner(computer_choice):
 
 
 if __name__ == '__main__':
-    computer_choice = random.choice(list(all_choices.keys()))
-    game_runner(computer_choice)
+
+    game_runner()
 
 
 
