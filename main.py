@@ -176,8 +176,8 @@ def game_runner():
         play_again = input("Wanna Play Again ?? : ").strip().lower()
 
         if play_again in ['y','yes']:
-            print("\n\nDo you want to have a series ?\nYou can with me multiple times and the scores will"
-                  "keep adding and the final result after each match will be calculated on the basis of "
+            print("\n\nDo you want to have a series ?\nYou can play with me multiple times and the scores will"
+                  " keep adding and the final result after each match will be calculated on the basis of "
                   "the sum of the scores of the previous matches.\n")
             match_series = input("Want to Have a Series ?: ")
 
@@ -188,7 +188,7 @@ def game_runner():
             chances = 8
             computer_choice = random.choice(list(all_choices.keys()))
             print(f'\n\n{f"Welcoming You Once Again {user_name}":=^50}')
-            game_runner(computer_choice)
+            game_runner()
 
 
 if __name__ == '__main__':
