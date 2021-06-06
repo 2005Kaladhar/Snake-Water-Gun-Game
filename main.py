@@ -135,7 +135,7 @@ def game_event_loop(chances,computer_choice):
         quit()
 
 
-    print("Out of exception ", chances, 'cmp choice -', computer_choice)
+    # print("Out of exception ", chances, 'cmp choice -', computer_choice)
 
     print(f"You Chose [{user_input}]")
 
