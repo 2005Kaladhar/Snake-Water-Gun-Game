@@ -105,30 +105,22 @@ computer_points = 0
 user_points = 0
 chances = 8
 
-def game_event_loop(chances,computer_choice):
+def game_event_loop(chances,computer_choice,user_input):
     global user_points,computer_points
 
-    result_condition = {-2:False,-1:False,1:True,0:False, 2:False}
+    # result_condition = {-2:False,-1:False,1:True,0:False, 2:False}
 
-    user_input = input(f"Enter choice,chances left {chances}: ").strip().lower()
-    if user_input in ['exit','e','ex'] :
-        print("\n\nExit Requested....\nExiting from the game..")
-        quit()
-    user_input = map_choice(user_input)
+    result =  all_choices[computer_choice] - all_choices[user_input]
 
-    try:
-        result = result_condition[all_choices[computer_choice] - all_choices[user_input]]
+    print(result)
 
-    except Exception as e :
-        print("\nGot an Input Error, please type correctly.\nExiting Game\n")
-        quit()
 
 
     # print("Out of exception ", chances, 'cmp choice -', computer_choice)
 
     print(f"You Chose [{user_input}]")
 
-    if result:
+    if result == 1:
         print(f"Wohoo!! You got a point... I had chosen [{computer_choice}]\n"
               f"Point +1..\n\n")
         user_points +=1
@@ -143,9 +135,22 @@ def game_event_loop(chances,computer_choice):
 def game_runner():
     global chances
     while chances :
-        computer_choice = random.choice(list(all_choices.keys()))
-        game_event_loop(chances,computer_choice)
-        chances -= 1
+        user_input = input(f"Enter choice,chances left {chances}: ").strip().lower()
+        if user_input in ['exit', 'e', 'ex']:
+            print("\n\nExit Requested....\nExiting from the game..")
+            quit()
+
+        try:
+            user_input = map_choice(user_input)
+            computer_choice = random.choice(list(all_choices.keys()))
+            game_event_loop(chances, computer_choice, user_input)
+            chances -= 1
+        except Exception as e:
+            print(e)
+            print("\nGot an Input Error, please type correctly.\nContinuing Game...\n")
+            continue
+
+
     else:
         time.sleep(1)
         char_animation('\n\nOhoooooyiii !! All Chances are finished.....\n\n')
@@ -175,7 +180,7 @@ def game_runner():
                 globals()['user_points'] ,globals()['computer_points'] = 0,0
 
             chances = 8
-            computer_choice = random.choice(list(all_choices.keys()))
+
             print(f'\n\n{f"Welcoming You Once Again {user_name}":=^50}')
             game_runner()
 
