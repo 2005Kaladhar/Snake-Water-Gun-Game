@@ -9,40 +9,31 @@ On adding the computer's choice and my choice,
 3.if the result is greater then '1' then I will loose
 ------------------------------------------------------
 => All possible outcomes and their result are as follows :
-
 Computer   Me
-
 snake    - gun - Win
 water    - gun - loose
 gun      - gun - Tie
-
 snake    - snake - Tie
 water    - snake - win
 gun      - snake - loose
-
 snake    - water - Loose
 water    - water - Tie
 gun      - water - Win
 ----------------------------
-
 Modules used -
 1. random - to make the game more unpredictable
 2. time   - for certain delays
-
 '''
 
 import random
 game_rules = f'''
 -----------____------___________-----_________-----________------
 {"Welcome to Snake,Water,Gun Game Instruction module.":^60}
-
 This game is similar to stone,paper,scissor ; here you will find 
 Snake, Water and Gun.
 The following table shows all the possible cominations and
 their results.
-
 Computer   Me       Result
-
 snake    - gun      - Win
 water    - gun      - loose
 gun      - gun      - Tie
@@ -55,9 +46,7 @@ snake    - water    - Loose
 water    - water    - Tie
 gun      - water    - Win
 ------------------------
-
 Hope you understood the game. Now Enjoy...
-
 Thank You!!
 Team
 -Koi team nahi hai, maje le raha tha.
@@ -110,7 +99,7 @@ def map_choice(choice: str) -> object:
     if 's' in choice: return 'Snake'
     elif 'w' in choice: return 'Water'
     elif 'g' in choice : return "Gun"
-    
+
 #Defining Game_Event Loop
 computer_points = 0
 user_points = 0
@@ -184,7 +173,8 @@ def game_runner():
             if match_series in ['y','yes']:
 
                 globals()['user_points'] ,globals()['computer_points'] = 0,0
-
+            else:
+                quit()
             chances = 8
             computer_choice = random.choice(list(all_choices.keys()))
             print(f'\n\n{f"Welcoming You Once Again {user_name}":=^50}')
@@ -194,12 +184,3 @@ def game_runner():
 if __name__ == '__main__':
 
     game_runner()
-
-
-
-
-
-
-
-
-
