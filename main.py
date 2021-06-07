@@ -173,8 +173,7 @@ def game_runner():
             if match_series in ['y','yes']:
 
                 globals()['user_points'] ,globals()['computer_points'] = 0,0
-            else:
-                quit()
+
             chances = 8
             computer_choice = random.choice(list(all_choices.keys()))
             print(f'\n\n{f"Welcoming You Once Again {user_name}":=^50}')
